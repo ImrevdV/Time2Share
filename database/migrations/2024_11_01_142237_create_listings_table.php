@@ -17,6 +17,7 @@ class CreateListingsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('tags');
+            $table->string('img')->nullable();
             $table->longText('description');
             $table->timestamps();
         });

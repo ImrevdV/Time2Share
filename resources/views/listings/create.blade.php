@@ -1,5 +1,5 @@
 <x-layout>
-    <form method="POST" action="/listings">
+    <form method="POST" action="/listings" enctype="multipart/form-data">
         @csrf
         <div class="mb-6">
             <label for="title" class="inline-block text-lg mb-2">Item listing Title</label>
@@ -32,7 +32,7 @@
             <p class="text-red-500 text-xs mt-1">{{$message}}</p>
             @enderror
         </div>
-        {{-- <div class="mb-6">
+        <div class="mb-6">
             <label for="logo" class="inline-block text-lg mb-2">
               Photo of the item
             </label>
@@ -41,7 +41,7 @@
             @error('img')
             <p class="text-red-500 text-xs mt-1">{{$message}}</p>
             @enderror
-        </div> --}}
+        </div>
         <div class="mb-6">
             <button class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
               Create Gig

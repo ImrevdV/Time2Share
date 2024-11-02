@@ -49,5 +49,6 @@
         {{$slot}}
     </main>
     <a href="/listings/create" class="create"><i class="fa-solid fa-plus"></i>  Share your item!</a>
+    <x-modal />
 </body>
 </html>

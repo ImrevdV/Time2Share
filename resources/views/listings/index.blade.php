@@ -19,7 +19,7 @@
 @foreach ($listings as $listing)
     <div class="card">
         <a href="/listings/{{$listing['id']}}">
-            <img src="{{$listing->logo ? asset('storage/' . $listing->logo) : asset('/images/no-image.png')}}" alt="" />
+            <img src="{{$listing->img ? asset('storage/' . $listing->img) : asset('/images/no-image.png')}}" alt="" />
         </a>
         <h2>
             <a href="/listings/{{$listing['id']}}">
