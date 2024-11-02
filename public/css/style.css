@@ -1,0 +1,147 @@
+:root {
+    --bg: #161616;
+    --bg-light: #1f1f1f;
+    --primary: #083D77;
+    --primary-light: #0B4F99;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    color: white;
+}
+
+body{
+    background: var(--bg);
+}
+
+/* Flexbox layout */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+}
+
+/* Logo styling */
+.logo-link {
+    display: inline-block;
+}
+
+.logo {
+    width: 6rem;
+}
+
+/* Navigation links */
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-right: 1.5rem;
+    font-size: 1.125rem;
+    list-style: none;
+    padding: 0;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+}
+
+.welcome-text {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Links */
+.nav-link {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+.nav-link:hover,
+.logout-button:hover {
+    color: var(--primary-light);
+}
+
+/* Logout form styling */
+.logout-form {
+    display: inline;
+}
+
+.logout-button {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+/* Search Form Styling */
+.search-form {
+    margin: 1rem;
+}
+
+.search-container {
+    position: relative;
+    border: 2px solid white;
+    border-radius: 0.5rem;
+    padding: 0;
+}
+
+.icon-container {
+    position: absolute;
+    top: 1rem;
+    left: 0.75rem;
+    z-index: 20;
+}
+
+.search-icon {
+    color: white;
+    transition: color 0.3s;
+}
+
+.search-input {
+    height: 3.5rem;
+    width: 100%;
+    padding-left: 2.5rem;
+    padding-right: 5rem;
+    border-radius: 0.5rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    z-index: 0;
+    transition: box-shadow 0.3s;
+    background-color: #ffffff09;
+}
+
+.search-input:focus {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.button-container {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+}
+
+.search-button {
+    height: 2.5rem;
+    width: 5rem;
+    color: white;
+    background-color: var(--primary);
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: var(--primary-light);
+}
