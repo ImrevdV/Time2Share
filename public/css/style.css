@@ -1,6 +1,7 @@
 :root {
     --bg: #161616;
     --bg-light: #1f1f1f;
+    --bg-indent: #ffffff09;
     --primary: #083D77;
     --primary-light: #0B4F99;
   }
@@ -82,66 +83,47 @@ body{
     transition: color 0.3s;
 }
 
-/* Search Form Styling */
-.search-form {
-    margin: 1rem;
-}
-
-.search-container {
-    position: relative;
-    border: 2px solid white;
-    border-radius: 0.5rem;
-    padding: 0;
-}
-
-.icon-container {
-    position: absolute;
-    top: 1rem;
-    left: 0.75rem;
-    z-index: 20;
-}
-
-.search-icon {
-    color: white;
-    transition: color 0.3s;
-}
-
-.search-input {
-    height: 3.5rem;
-    width: 100%;
-    padding-left: 2.5rem;
-    padding-right: 5rem;
-    border-radius: 0.5rem;
-    border: none;
-    outline: none;
-    font-size: 1rem;
-    z-index: 0;
-    transition: box-shadow 0.3s;
-    background-color: #ffffff09;
-}
-
-.search-input:focus {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.button-container {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-}
-
-.search-button {
-    height: 2.5rem;
-    width: 5rem;
-    color: white;
+/* Create button styling */
+.create{
     background-color: var(--primary);
-    border: none;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    border-radius: 1rem;
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+    position: fixed;
+    bottom: 0.7rem;
+    right: 0.7rem;
 }
 
-.search-button:hover {
-    background-color: var(--primary-light);
+/* Card styling */
+.card-container {
+    width: 90vw;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.board{
+    width: 90vw;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 14rem;
+    background-color: var(--bg-indent);
+    padding: 0.7rem;
+    border-radius: 1.4rem;
+    margin: 0.7rem;
+}
+
+.card img{
+    width: 12rem;
+    margin: 0.3rem auto;
+}
+
+.card h2, p{
+    margin: 0.3rem 0;
 }

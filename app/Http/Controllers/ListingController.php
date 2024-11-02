@@ -20,4 +20,24 @@ class ListingController extends Controller
             'listing' => $listing
         ]);
     }
+
+    public function create() {
+        return view('listings.create');
+    }
+
+    public function store(Request $request) {
+        $formFields = $request->validate([
+            'title' => 'required',
+            'tags' => 'required',
+            'description' => 'required'
+        ]);
+
+        if($request->hasFile('logo')) {
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+        }
+
+        Listing::create($formFields);
+
+        return redirect('/');
+    }
 }

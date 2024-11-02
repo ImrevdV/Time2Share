@@ -41,9 +41,13 @@
     </nav>    
     <main>
         <h1>Time2Share</h1>
-        <p>Welcome to Time2Share, where you can share your items with people near you!</p>
-        {{-- view --}}
+        <p>
+            Welcome to Time2Share, where you can share your items with people near you and lend items from other people.
+            <br>
+            Please log in to start sharing items!
+        </p>
         {{$slot}}
     </main>
+    <a href="/listings/create" class="create"><i class="fa-solid fa-plus"></i>  Share your item!</a>
 </body>
 </html>
