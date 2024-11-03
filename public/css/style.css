@@ -17,6 +17,7 @@
 
 body{
     background: var(--bg);
+    min-height: 100vh;
 }
 
 /* Flexbox layout */
@@ -26,6 +27,7 @@ body{
     align-items: center;
     margin-bottom: 1rem;
     padding: 0 1rem;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 /* Logo styling */
@@ -122,6 +124,7 @@ body{
 .card img{
     width: 12rem;
     margin: 0.3rem auto;
+    display: block;
 }
 
 .card h2, p{

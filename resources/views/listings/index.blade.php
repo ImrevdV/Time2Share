@@ -1,48 +1,56 @@
 <x-layout>
-<h1>All listings</h1>
+    <h1>Time2Share</h1>
+    <p>
+        Welcome to Time2Share, where you can share your items with people near you and lend items from other people.
+        <br>
+        Please log in to start sharing items!
+    </p>
+    <h1>All listings</h1>
 
-@unless (count($listings) == 0)
+    @unless (count($listings) == 0)
 
-<form action="/" class="search-form">
-    <div class="search-container">
-        <div class="icon-container">
-            <i class="fa fa-search search-icon"></i>
+    <form action="/" class="search-form">
+        <div class="search-container">
+            <div class="icon-container">
+                <i class="fa fa-search search-icon"></i>
+            </div>
+            <input type="text" name="search" class="search-input" placeholder="Search item listings..." />
+            <div class="button-container">
+                <button type="submit" class="search-button">Search</button>
+            </div>
         </div>
-        <input type="text" name="search" class="search-input" placeholder="Search item listings..." />
-        <div class="button-container">
-            <button type="submit" class="search-button">Search</button>
-        </div>
-    </div>
-</form>
+    </form>
 
-<div class="card-container">
-@foreach ($listings as $listing)
-    <div class="card">
-        <a href="/listings/{{$listing['id']}}">
-            <img src="{{$listing->img ? asset('storage/' . $listing->img) : asset('/images/no-image.png')}}" alt="" />
-        </a>
-        <h2>
+    <div class="card-container">
+    @foreach ($listings as $listing)
+        <div class="card">
             <a href="/listings/{{$listing['id']}}">
-                {{$listing['title']}}
+                <img src="{{$listing->img ? asset('storage/' . $listing->img) : asset('/images/no-image.png')}}" alt="" />
             </a>
-        </h2>
-        <x-listing-tags :tagsCsv="$listing->tags" />
-        <p>
-            {{$listing['description']}}
-        </p>
+            <h2>
+                <a href="/listings/{{$listing['id']}}">
+                    {{$listing['title']}}
+                </a>
+            </h2>
+            <x-listing-tags :tagsCsv="$listing->tags" />
+        </div>
+    @endforeach
     </div>
-@endforeach
-</div>
 
-@else
-    <p>Currently no item listings :(</p>
-@endunless
+    @else
+        <p>Currently no item listings :(</p>
+    @endunless
 </x-layout>
 
 <style>
+    h1, p{
+        text-align: center;
+        margin: 0.5rem;
+    }
     /* Search Form Styling */
     .search-form {
-        margin: 1rem;
+        margin: 1rem auto;
+        max-width: 40rem;
     }
 
     .search-container {
