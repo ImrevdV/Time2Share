@@ -2,6 +2,7 @@
 
 use App\Models\Listing;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ListingController;
 
 /*
@@ -26,3 +27,13 @@ Route::post('/listings', [ListingController::class, 'store']);
 
 
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
+
+Route::get('/register', [UserController::class, 'create']);
+
+Route::post('/users', [UserController::class, 'store']);
+
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
+
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
+
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);

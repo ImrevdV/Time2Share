@@ -16,9 +16,6 @@
         <ul class="nav-links">
             @auth
             <li class="nav-item">
-                <span class="welcome-text">Welcome {{auth()->user()->name}}</span>
-            </li>
-            <li class="nav-item">
                 <a href="/listings/manage" class="nav-link"><i class="fa-solid fa-gear"></i> Manage Listings</a>
             </li>
             <li class="nav-item">

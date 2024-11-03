@@ -1,4 +1,7 @@
 <x-layout>
+    @auth
+    <span class="welcome-text">Welcome {{auth()->user()->name}}</span>
+    @endauth
     <h1>Time2Share</h1>
     <p>
         Welcome to Time2Share, where you can share your items with people near you and lend items from other people.
@@ -111,4 +114,21 @@
     .search-button:hover {
         background-color: var(--primary-light);
     }
+
+    .card-container {
+        margin: 1.3rem auto;
+        width: 95vw;
+        columns: 14rem auto;
+    }
+
+    .card {
+        break-inside: avoid;
+        margin: 0 auto;
+        margin-bottom: 0.7rem;
+    }
+
+    .welcome-text{
+        margin: 0.7rem;
+    }
+
 </style>

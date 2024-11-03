@@ -97,28 +97,12 @@ body{
 }
 
 /* Card styling */
-.card-container {
-    width: 90vw;
-    margin: 20px auto;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.board{
-    width: 90vw;
-    margin: 20px auto;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
 
 .card{
     width: 14rem;
     background-color: var(--bg-indent);
     padding: 0.7rem;
     border-radius: 1.4rem;
-    margin: 0.7rem;
 }
 
 .card img{
@@ -128,5 +112,105 @@ body{
 }
 
 .card h2, p{
-    margin: 0.3rem 0;
+    margin: 0.3rem auto;
+}
+
+.card a{
+    text-decoration: none;
+}
+
+/* Form styling */
+/* General Form Styling */
+.form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: inline-block;
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-input {
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: var(--bg);
+}
+
+textarea.form-input {
+    resize: vertical;
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.submit-button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: var(--primary-light);
+}
+
+.back-link {
+    color: white;
+    margin-left: 1rem;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #ffffff90;
+}
+
+/* Header Styling */
+.form-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.form-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+}
+
+.form-subtitle {
+    margin-bottom: 1rem;
+}
+
+/* Footer Link Styling */
+.form-footer {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.form-link {
+    color: var(--primary-light);
+    text-decoration: none;
+}
+
+.form-link:hover {
+    text-decoration: underline;
 }
