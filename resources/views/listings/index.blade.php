@@ -8,6 +8,38 @@
         <br>
         Please log in to start sharing items!
     </p>
+    @auth
+    @unless (count($listings_lending) == 0)
+        <h1>You are currently lending:</h1>
+        <div class="card-container">
+        @foreach ($listings_lending as $listing)
+            <div class="card">
+                @if ($listing->return_date)
+                    <p>Return by: {{$listing['return_date']}}</p>
+                    <form method="POST" action="/return/{{$listing->id}}" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
+                          <button class="submit-button">
+                            Return
+                          </button>
+                      </form>
+                @endif
+                <a href="/listings/{{$listing['id']}}">
+                    <img src="{{$listing->img ? asset('storage/' . $listing->img) : asset('/images/no-image.png')}}" alt="" />
+                </a>
+                <h2>
+                    <a href="/listings/{{$listing['id']}}">
+                        {{$listing['title']}}
+                    </a>
+                </h2>
+                <x-listing-tags :tagsCsv="$listing->tags" />
+                <p>{{$listing['owner_name']}}</p>
+            </div>
+        @endforeach
+        </div>
+    @endunless
+    @endauth
+
     <h1>All listings</h1>
 
     @unless (count($listings) == 0)
@@ -36,6 +68,7 @@
                 </a>
             </h2>
             <x-listing-tags :tagsCsv="$listing->tags" />
+            <p>{{$listing['owner_name']}}</p>
         </div>
     @endforeach
     </div>
@@ -131,4 +164,8 @@
         margin: 0.7rem;
     }
 
+    .card .submit-button{
+        margin-left: auto;
+        display: block;
+    }
 </style>

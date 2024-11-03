@@ -1,16 +1,3 @@
-<x-layout>
-    <div>
-        <img id="js--img" src="{{$listing->img ? asset('storage/' . $listing->img) : asset('/images/no-image.png')}}" alt="" onload="getAverageColor()"/>
-        <h1>
-            {{$listing['title']}}
-        </h1>
-        <x-listing-tags :tagsCsv="$listing->tags" />
-        <p>
-            {{$listing['description']}}
-        </p>
-    </div>
-</x-layout>
-
 <script>
     function getAverageColor() {
         const img = document.getElementById('js--img');
@@ -46,6 +33,30 @@
     }
 </script>
 
+<x-layout>
+    <div>
+        <img id="js--img" src="{{$listing->img ? asset('storage/' . $listing->img) : asset('/images/no-image.png')}}" alt="" onload="getAverageColor()"/>
+        <h1>
+            {{$listing['title']}}
+        </h1>
+        <x-listing-tags :tagsCsv="$listing->tags" />
+        <p>
+            {{$listing['description']}}
+        </p>
+        @auth
+        @if ($listing->owner_name != auth()->user()->name && !($listing->lender_name))
+            <form method="POST" action="/lend/{{$listing->id}}" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                <button class="submit-button">
+                Lend this item
+                </button>
+            </form>
+        @endif
+        @endauth
+    </div>
+</x-layout>
+
 <style>
     body{
         min-height: 100vh;
@@ -63,7 +74,13 @@
 
     img{
         width: 25rem;
+        max-width: 80vw;
         display: block;
         margin: 0 auto;
+    }
+
+    .submit-button{
+        margin-left: auto;
+        display: block;
     }
 </style>

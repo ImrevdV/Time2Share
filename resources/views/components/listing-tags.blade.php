@@ -18,6 +18,7 @@ $tags = explode(',', $tagsCsv);
         display: flex;
         padding: 0;
         list-style: none;
+        flex-wrap: wrap;
     }
 
     /* Tag Item Styling */
@@ -28,7 +29,7 @@ $tags = explode(',', $tagsCsv);
         background-color: var(--primary);
         border-radius: 0.75rem;
         padding: 0.25rem 0.75rem;
-        margin-right: 0.5rem;
+        margin: 0.2rem;
         font-size: 0.75rem;
     }
 

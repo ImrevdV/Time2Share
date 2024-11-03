@@ -19,6 +19,9 @@ class CreateListingsTable extends Migration
             $table->string('tags');
             $table->string('img')->nullable();
             $table->longText('description');
+            $table->string('owner_name');
+            $table->string('lender_name')->nullable();
+            $table->date('return_date')->nullable();
             $table->timestamps();
         });
     }

@@ -18,9 +18,13 @@ use App\Http\Controllers\ListingController;
 
 Route::get('/', [ListingController::class, 'index']);
 
-Route::get('/listings/create', [ListingController::class, 'create']);
+Route::get('/listings/create', [ListingController::class, 'create'])->middleware('auth');
 
 Route::post('/listings', [ListingController::class, 'store']);
+
+Route::put('/lend/{listing}', [ListingController::class, 'lend'])->middleware('auth');
+
+Route::put('/return/{listing}', [ListingController::class, 'return'])->middleware('auth');
 
 
 

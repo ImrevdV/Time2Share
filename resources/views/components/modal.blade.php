@@ -2,6 +2,9 @@
 <div class="modal" id="js--modal" onclick="closeModal()">
     <div class="popup">
         <p>{{session('message')}}</p>
+        @if (@session()->has('return'))
+            <p>Do you want to write a review?</p>
+        @endif
         <button class="button" onclick="closeModal()">Close</button>
     </div>
 </div>

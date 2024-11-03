@@ -34,7 +34,7 @@
           @enderror
       </div>
       <div class="form-group">
-          <button type="submit" class="submit-button">Create Gig</button>
+          <button type="submit" class="submit-button">Create listing</button>
           <a href="/" class="back-link">Back</a>
       </div>
   </form>
