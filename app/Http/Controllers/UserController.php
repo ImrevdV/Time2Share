@@ -13,7 +13,6 @@ class UserController extends Controller
         return view('users.register');
     }
 
-    // Create New User
     public function store(Request $request) {
         $formFields = $request->validate([
             'name' => ['required', 'min:3', Rule::unique('users', 'name')],
@@ -21,19 +20,15 @@ class UserController extends Controller
             'password' => 'required|confirmed|min:6'
         ]);
 
-        // Hash Password
         $formFields['password'] = bcrypt($formFields['password']);
 
-        // Create User
         $user = User::create($formFields);
 
-        // Login
         auth()->login($user);
 
         return redirect('/')->with('message', 'User created and logged in');
     }
-
-    // Logout User
+    
     public function logout(Request $request) {
         auth()->logout();
 
@@ -43,13 +38,11 @@ class UserController extends Controller
         return redirect('/')->with('message', 'You have been logged out!');
 
     }
-
-    // Show Login Form
+    
     public function login() {
         return view('users.login');
     }
-
-    // Authenticate User
+    
     public function authenticate(Request $request) {
         $formFields = $request->validate([
             'email' => ['required', 'email'],
@@ -63,5 +56,11 @@ class UserController extends Controller
         }
 
         return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
+    }
+
+    public function destroy(User $user) {
+
+        $user->delete();
+        return back()->with('message', 'User deleted successfully');
     }
 }

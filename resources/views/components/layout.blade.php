@@ -15,9 +15,15 @@
         </a>
         <ul class="nav-links">
             @auth
-            <li class="nav-item">
-                <a href="/listings/manage" class="nav-link"><i class="fa-solid fa-gear"></i> Manage Listings</a>
-            </li>
+            @unless (auth()->user()->role == 'admin')
+                <li class="nav-item">
+                    <a href="/listings/manage" class="nav-link"><i class="fa-solid fa-gear"></i> Manage Listings</a>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a href="/admin" class="nav-link"><i class="fa-solid fa-gear"></i> Admin page</a>
+                </li>
+            @endunless
             <li class="nav-item">
                 <form class="logout-form" method="POST" action="/logout">
                     @csrf

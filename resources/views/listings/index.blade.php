@@ -11,9 +11,9 @@
     @auth
     @unless (count($listings_lending) == 0)
         <h1>You are currently lending:</h1>
-        <div class="card-container">
+        <div class="listing-card-container">
         @foreach ($listings_lending as $listing)
-            <div class="card">
+            <div class="listing-card">
                 @if ($listing->return_date)
                     <p>Return by: {{$listing['return_date']}}</p>
                     <form method="POST" action="/return/{{$listing->id}}" enctype="multipart/form-data">
@@ -56,9 +56,9 @@
         </div>
     </form>
 
-    <div class="card-container">
+    <div class="listing-card-container">
     @foreach ($listings as $listing)
-        <div class="card">
+        <div class="listing-card">
             <a href="/listings/{{$listing['id']}}">
                 <img src="{{$listing->img ? asset('storage/' . $listing->img) : asset('/images/no-image.png')}}" alt="" />
             </a>

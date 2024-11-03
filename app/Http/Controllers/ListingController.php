@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 
@@ -23,8 +24,9 @@ class ListingController extends Controller
     }
 
     public function indexAdmin() {
-        return view('listings.index', [
-            'listings' => Listing::latest()->filter(request(['tag', 'search']))->get()
+        return view('admin', [
+            'listings' => Listing::latest()->get(),
+            'users' => User::all()->where('role', null)
         ]);
     }
 
@@ -54,6 +56,22 @@ class ListingController extends Controller
         Listing::create($formFields);
 
         return redirect('/')->with('message', 'Listing created successfully!');
+    }
+
+    public function manage() {
+        return view('listings.manage', [
+            'listings' => Listing::latest()->filter(request(['tag', 'search']))->where('owner_name', auth()->user()->name)->get()
+        ]);
+    }
+
+    public function destroy(Listing $listing) {
+        
+        if($listing->logo && Storage::disk('public')->exists($listing->logo)) {
+            Storage::disk('public')->delete($listing->logo);
+        }
+
+        $listing->delete();
+        return back()->with('message', 'Listing deleted successfully');
     }
 
     public function lend(Listing $listing) {

@@ -26,6 +26,10 @@ Route::put('/lend/{listing}', [ListingController::class, 'lend'])->middleware('a
 
 Route::put('/return/{listing}', [ListingController::class, 'return'])->middleware('auth');
 
+Route::get('/listings/manage', [ListingController::class, 'manage'])->middleware('auth');
+
+Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->middleware('auth');
+
 
 
 
@@ -41,3 +45,8 @@ Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+
+Route::delete('/admin/{user}', [UserController::class, 'destroy'])->middleware('auth');
+
+Route::get('/admin', [ListingController::class, 'indexAdmin'])->middleware('auth');
+
