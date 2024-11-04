@@ -59,7 +59,7 @@ class UserController extends Controller
     }
 
     public function destroy(User $user) {
-
+        ReviewController::destroyUser($user);
         $user->delete();
         return back()->with('message', 'User deleted successfully');
     }

@@ -34,7 +34,8 @@
 </script>
 
 <x-layout>
-    <div>
+    <div class="listing-div">
+        <p>Shared by: {{$listing['owner_name']}}</p>
         <img id="js--img" src="{{$listing->img ? asset('storage/' . $listing->img) : asset('/images/no-image.png')}}" alt="" onload="getAverageColor()"/>
         <h1>
             {{$listing['title']}}
@@ -55,6 +56,23 @@
         @endif
         @endauth
     </div>
+    <h1 class="reviewsh1">All reviews on this item</h1>
+
+    @unless (count($reviews) == 0)
+    <div class="review-card-container">
+    @foreach ($reviews as $review)
+        <div class="review-card">
+            <h3>Written by: {{$review['user_name']}}</h3>
+            <p>{{$review['date_posted']}}</p>
+            <h1>{{$review['title']}}</h1>
+            <p>{{$review['description']}}</p>
+        </div>
+    @endforeach
+    </div>
+
+    @else
+        <p>There are currently no reviews on this item listing</p>
+    @endunless
 </x-layout>
 
 <style>
@@ -63,12 +81,17 @@
         width: 100vw;
     }
 
-    div{
+    .reviewsh1{
+        text-align: center;
+        margin: 0.5rem;
+    }
+
+    .listing-div{
         width: fit-content;
         margin: 0 auto;
     }
 
-    div h1, p{
+    .listing-div h1, p{
         margin: 0.3rem 0;
     }
 
@@ -82,5 +105,26 @@
     .submit-button{
         margin-left: auto;
         display: block;
+    }
+    
+
+    .review-card-container {
+        margin: 1.3rem auto;
+        width: 95vw;
+        columns: 25rem auto;
+    }
+    .review-card{
+        width: 25rem;
+        max-width: 95vw;
+        background-color: var(--bg-indent);
+        padding: 0.7rem;
+        border-radius: 1.4rem;
+        break-inside: avoid;
+        margin: 0 auto;
+        margin-bottom: 0.7rem;
+    }
+
+    .review-card h1, h2, p{
+        margin: 0.3rem auto;
     }
 </style>

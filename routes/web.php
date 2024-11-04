@@ -3,6 +3,7 @@
 use App\Models\Listing;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ListingController;
 
 /*
@@ -35,6 +36,10 @@ Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->mid
 
 
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
+
+Route::get('/review/{listing}', [ListingController::class, 'review']);
+
+Route::post('/review/{listing}', [ReviewController::class, 'store']);
 
 Route::get('/register', [UserController::class, 'create']);
 

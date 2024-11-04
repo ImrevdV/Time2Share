@@ -4,6 +4,9 @@
         <p>{{session('message')}}</p>
         @if (@session()->has('return'))
             <p>Do you want to write a review?</p>
+            <a href="/review/{{session('return')}}">
+                <button class="button">Review</button>
+            </a>
         @endif
         <button class="button" onclick="closeModal()">Close</button>
     </div>

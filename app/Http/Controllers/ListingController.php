@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Review;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 
@@ -32,6 +33,13 @@ class ListingController extends Controller
 
     public function show(Listing $listing) {
         return view('listings.show', [
+            'listing' => $listing,
+            'reviews' => Review::latest()->where('listing_id', $listing->id)->get()
+        ]);
+    }
+
+    public function review(Listing $listing) {
+        return view('reviews.create', [
             'listing' => $listing
         ]);
     }
@@ -70,6 +78,7 @@ class ListingController extends Controller
             Storage::disk('public')->delete($listing->logo);
         }
 
+        ReviewController::destroyListing($listing);
         $listing->delete();
         return back()->with('message', 'Listing deleted successfully');
     }
@@ -89,6 +98,6 @@ class ListingController extends Controller
             'return_date' => null
         ]);
 
-        return redirect('/')->with('message', 'You returned ' . $listing->title)->with('return', true);;
+        return redirect('/')->with('message', 'You returned ' . $listing->title)->with('return', $listing->id);
     }
 }
