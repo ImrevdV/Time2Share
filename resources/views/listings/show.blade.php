@@ -71,7 +71,7 @@
     </div>
 
     @else
-        <p>There are currently no reviews on this item listing</p>
+        <p class="placeholder">There are currently no reviews on this item listing</p>
     @endunless
 </x-layout>
 

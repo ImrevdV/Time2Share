@@ -62,4 +62,9 @@
         margin-left: auto;
         display: block;
     }
+
+    .back-link{
+        margin-top: 1rem;
+        display: inline-block
+    }
 </style>

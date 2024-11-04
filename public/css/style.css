@@ -6,7 +6,7 @@
     --primary-light: #0B4F99;
     --red: #ef4444;
     --red-light: #F05656;
-  }
+}
 
 * {
     margin: 0;
@@ -20,6 +20,7 @@
 body{
     background: var(--bg);
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* Flexbox layout */
@@ -238,4 +239,10 @@ textarea.form-input {
 
 .delete-button:hover {
     background-color: var(--red-light);
+}
+
+
+.placeholder{
+    padding: 5rem;
+    padding-top: 2rem;
 }

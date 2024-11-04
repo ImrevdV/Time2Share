@@ -61,10 +61,15 @@
     .popup *{
         margin: 5px auto;
     }
+
+    a{
+        text-decoration: none;
+    }
 </style>
 
 <script>
     function closeModal() {
         document.getElementById("js--modal").classList.add('hidden');
+        session('message') = null;
     }
 </script>

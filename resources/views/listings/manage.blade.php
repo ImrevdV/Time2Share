@@ -24,7 +24,7 @@
     </div>
 
     @else
-        <p>You currently have no item listings :(</p>
+        <p class="placeholder">You currently have no item listings :(</p>
     @endunless
 </x-layout>
 

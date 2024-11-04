@@ -45,7 +45,7 @@
     </div>
 
     @else
-        <p>You are the only user</p>
+        <p class="placeholder">You are the only user</p>
     @endunless
 </x-layout>
 
